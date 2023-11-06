@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import FoodCard from "./FoodCard";
+import { Link } from "react-router-dom";
 
 const Foods = () => {
   const [food, setFood] = useState([]);
@@ -17,10 +18,9 @@ const Foods = () => {
   }, []);
 
   return (
-    <div className="pb-8">
+    <div className="pb-8 text-center">
       <div className="text-center m-5">
-        <h1 className="text-orange-600 text-2xl font-bold">Services</h1>
-        <h1 className="text-5xl font-bold m-3">Our Food</h1>
+        <h1 className="text-5xl font-bold m-3 text-orange-700">Our Food</h1>
         <p>
           The majority have suffered alteration in some form, by injected
           humour, or randomised <br /> words which do not look even slightly
@@ -32,6 +32,7 @@ const Foods = () => {
           <FoodCard key={foodItem._id} food={foodItem} />
         ))}
       </div>
+     <Link to={'/allfood'}> <button className="bg-orange-600 text-white p-2 rounded-lg ">See More</button></Link>
     </div>
   );
 };

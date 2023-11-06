@@ -5,6 +5,7 @@ import SignUp from "../Pages/SignUp/SignUp";
 import Home from "../Pages/Home/Home/Home";
 import Blog from "../Pages/Blog/Blog";
 import Connect from "../Pages/Connect/Connect";
+import AllFoods from "../Pages/AllFood/AllFoods";
 
 const router = createBrowserRouter([
     {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
         {
             path:"/connect",
             element:<Connect></Connect>
+        },
+        {
+            path:"/allfood",
+            element:<AllFoods></AllFoods>
         }
 
       ]
