@@ -72,7 +72,7 @@ const Navbar = () => {
                             </li>
                             <li>
                                 <NavLink
-                                    to="/contact"
+                                    to="/connect"
                                     className={({ isActive, isPending }) =>
                                         isPending ? "pending" : isActive ? "text-pink-800 font-bold underline" : ""
                                     }
@@ -132,7 +132,7 @@ const Navbar = () => {
                         </li>
                         <li>
                             <NavLink
-                                to="/contact"
+                                to="/connect"
                                 className={({ isActive, isPending }) =>
                                     isPending ? "pending" : isActive ? "text-pink-800 font-bold underline" : ""
                                 }
