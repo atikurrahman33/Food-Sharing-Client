@@ -12,6 +12,7 @@ const Navbar = () => {
             .catch(e => console.log(e.message))
     }
 
+
     const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light");
     useEffect(() => {
 
@@ -60,22 +61,22 @@ const Navbar = () => {
                             </li>
                             <li>
                                 <NavLink
-                                    to="/addProduct"
+                                    to="/addfoods"
                                     className={({ isActive, isPending }) =>
                                         isPending ? "pending" : isActive ? "text-pink-800 font-bold underline" : ""
                                     }
                                 >
-                                    Add Product
+                                    Add Foods
                                 </NavLink>
                             </li>
                             <li>
                                 <NavLink
-                                    to="/myProduct"
+                                    to="/myfood"
                                     className={({ isActive, isPending }) =>
                                         isPending ? "pending" : isActive ? "text-pink-800 font-bold underline" : ""
                                     }
                                 >
-                                    My Product
+                                    My Foods
                                 </NavLink>
                             </li>
                             <li>
@@ -119,33 +120,33 @@ const Navbar = () => {
                             </NavLink>
                         </li>
                         <li>
-                                <NavLink
-                                    to="/allfood"
-                                    className={({ isActive, }) =>
-                                        isActive ? "text-pink-800 font-bold underline" : ""
-                                    }
-                                >
-                                    AvailableFood
-                                </NavLink>
-                            </li>
-                        <li>
                             <NavLink
-                                to="/addProduct"
-                                className={({ isActive, isPending }) =>
-                                    isPending ? "pending" : isActive ? "text-pink-800 font-bold underline" : ""
+                                to="/allfood"
+                                className={({ isActive, }) =>
+                                    isActive ? "text-pink-800 font-bold underline" : ""
                                 }
                             >
-                                Add Product
+                                AvailableFood
                             </NavLink>
                         </li>
                         <li>
                             <NavLink
-                                to="/myProduct"
+                                to="/addfoods"
                                 className={({ isActive, isPending }) =>
                                     isPending ? "pending" : isActive ? "text-pink-800 font-bold underline" : ""
                                 }
                             >
-                                My Product
+                                Add Foods
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink
+                                to="/myfood"
+                                className={({ isActive, isPending }) =>
+                                    isPending ? "pending" : isActive ? "text-pink-800 font-bold underline" : ""
+                                }
+                            >
+                                My Foods
                             </NavLink>
                         </li>
                         <li>
@@ -173,24 +174,48 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end gap-7 ">
                     <div className=" rounded-full flex gap-4 items-center  ">
-                        <div>         
+                        <div className="flex gap-3 items-center">
 
-                        {
-                    user ?
-                        <button onClick={handleSignOut} className="font-bold">Sign Out</button>
-                        :
-                        <NavLink
-                            to="/login"
-                            className={({ isActive,  }) =>
-                                isActive ? "text-pink-700 font-bold underline" : ""
+                            {
+                                user &&
+
+                                <div className="invisible lg:visible">
+                                    <p>{user?.displayName}</p>
+
+                                </div>
                             }
-                        >
-                            Login
-                        </NavLink>
+                            {
+                                user &&
+
+                                <div>
+
+                                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar ">
 
 
-                }
-                            
+                                        <div className="w-10 rounded-full">
+                                            <img src={user?.photoURL} />
+
+                                        </div>
+                                    </label>
+                                </div>
+                            }
+
+                            {
+                                user ?
+                                    <button onClick={handleSignOut} className="font-bold">Sign Out</button>
+                                    :
+                                    <NavLink
+                                        to="/login"
+                                        className={({ isActive, }) =>
+                                            isActive ? "text-pink-700 font-bold underline" : ""
+                                        }
+                                    >
+                                        Login
+                                    </NavLink>
+
+
+                            }
+
                         </div>
                         <div className="px-4 items-center"><label className="swap swap-rotate">
 

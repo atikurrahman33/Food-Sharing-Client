@@ -1,12 +1,10 @@
-
-
-
-
 import { Link } from "react-router-dom";
 import { useContext, useState } from 'react';
 import Swal from 'sweetalert2';
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import Google from "../Login/Google/Google";
+
+
 
 
 
@@ -20,8 +18,10 @@ const SignUp = () => {
             e.preventDefault();
             const form = new FormData(e.currentTarget);
             const email=(form.get("email")); 
+            const name=(form.get("name")); 
+            const photoUrl=(form.get("photourl")); 
             const password=(form.get("password")); 
-            console.log(email,password)
+            console.log(email,password,name,photoUrl)
             if (!/(?=.*[A-Z])/.test(password)) {
                 setError('Please enter at least one uppercase');
                 setSuccess('')
@@ -66,7 +66,10 @@ const SignUp = () => {
     
     
     return (
-        <div>
+        <div className="flex gap-12 pl-40 py-10 ">
+            <div>
+                <img className="h-[600px] w-[800px]" src="https://i.ibb.co/cNgFJqD/Atik.jpg" alt="" />
+            </div>
             
 <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 bg-white">
   <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -77,6 +80,18 @@ const SignUp = () => {
   <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
     <form onSubmit={handleRegister}  className="space-y-6" action="#" method="POST">
       <div>
+        <label  className="block text-sm font-medium leading-6 text-blue-600">Name</label>
+        <div className="mt-2">
+          <input id="text" name="name" type="text"  required className="block w-full rounded-md border-0 py-1.5 text-yellow-500 px-2 shadow-sm ring-1 ring-inset ring-red-300 placeholder:text-red-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+        </div>
+      </div>
+      <div>
+        <label  className="block text-sm font-medium leading-6 text-blue-600">Photo URL</label>
+        <div className="mt-2">
+          <input id="text" name="photourl" type="text"  required className="block w-full rounded-md border-0 py-1.5 text-yellow-500 px-2 shadow-sm ring-1 ring-inset ring-red-300 placeholder:text-red-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+        </div>
+      </div>
+      <div>
         <label  className="block text-sm font-medium leading-6 text-blue-600">Email address</label>
         <div className="mt-2">
           <input id="email" name="email" type="email"  required className="block w-full rounded-md border-0 py-1.5 text-yellow-500 px-2 shadow-sm ring-1 ring-inset ring-red-300 placeholder:text-red-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
@@ -86,9 +101,7 @@ const SignUp = () => {
       <div>
         <div className="flex items-center justify-between">
           <label className="block text-sm font-medium leading-6 text-blue-600">Password</label>
-          <div className="text-sm">
-            <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">Forgot password?</a>
-          </div>
+         
         </div>
         <div className="mt-2">
           <input id="password" name="password" type="password" required className="block w-full rounded-md border-0 py-1.5 text-yellow-500 px-2 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
@@ -97,7 +110,7 @@ const SignUp = () => {
 
       <div>
         <button type="submit" className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
-      <Google></Google>
+        <Google></Google>
       </div>
     </form>
 

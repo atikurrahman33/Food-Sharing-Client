@@ -7,6 +7,10 @@ import Blog from "../Pages/Blog/Blog";
 import Connect from "../Pages/Connect/Connect";
 import AllFoods from "../Pages/AllFood/AllFoods";
 import CardDetails from "../Pages/CardDetails/CardDetails";
+import AddFoods from "../Pages/AddFoods/AddFoods";
+import Update from "../Pages/My_Food/Update";
+import MyFood from "../Pages/My_Food/MyFood";
+import Request from "../Request/Request";
 
 const router = createBrowserRouter([
     {
@@ -42,6 +46,25 @@ const router = createBrowserRouter([
             element:<CardDetails></CardDetails>,
             loader: ({params})=>fetch(`http://localhost:4000/foodItem/${params.id}`),
           },
+          {
+            path:'/addfoods',
+            element:<AddFoods></AddFoods>,
+          },
+          {
+            path:'/myfood',
+            element:<MyFood></MyFood>
+          },
+          {
+            path: "/update/:id",
+            element: <Update></Update>,
+            loader: ({ params }) => fetch(`http://localhost:4000/foodItem/${params.id}`),
+    
+          },
+          {
+            path:'/request/:id',
+            element:<Request></Request>,
+            loader: ({params})=>fetch(`http://localhost:4000/foodItem/${params.id}`),
+          }
 
       ]
     },

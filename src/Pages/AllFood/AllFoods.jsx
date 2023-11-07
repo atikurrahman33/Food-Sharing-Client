@@ -31,7 +31,7 @@ const AllFoods = () => {
           className="p-2 border rounded "
         />
       </div>
-      <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-9 mx-auto w-9/12 py-16">
+      <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-12 mx-auto w-9/12 py-16">
         {food
           .filter((foodItem) =>
             foodItem.name.toLowerCase().includes(searchQuery.toLowerCase())
