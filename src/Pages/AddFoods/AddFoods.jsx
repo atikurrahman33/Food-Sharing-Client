@@ -16,7 +16,7 @@ function AddFoods() {
         const userName = form.userName.value;
         const userEmail = form.userEmail.value;
         const location = form.location.value;
-        const date = parseFloat(form.date.value);
+        const date = form.date.value;
         const status = form.status.value;
         const quantity = form.quantity.value;
         const description = form.description.value;
@@ -71,10 +71,10 @@ function AddFoods() {
                                 <input type="text" name="name" placeholder="Food Name" className="input input-bordered" />
                             </div>
                             <div className="form-control">
-                                <input type="text" name="userName" defaultValue={user?.displayName} className="input input-bordered" required />
+                                <input type="text" name="userName" readOnly defaultValue={user?.displayName} className="input input-bordered" required />
                             </div>
                             <div className="form-control">
-                                <input type="email" name="userEmail" defaultValue={user?.email} className="input input-bordered" required />
+                                <input type="email" name="userEmail" readOnly defaultValue={user?.email} className="input input-bordered" required />
                             </div>
                             
                             <div className="form-control">
@@ -85,7 +85,7 @@ function AddFoods() {
                             <input type="date" name="date"  className="input input-bordered" required />
                             </div>
                             <div className="form-control">
-                                <input type="text" name="status" defaultValue={"Available"} className="input input-bordered" required />
+                                <input type="text" name="status" readOnly defaultValue={"Available"} className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <input type="number" name="quantity" placeholder="Available quantity" className="input input-bordered" required />

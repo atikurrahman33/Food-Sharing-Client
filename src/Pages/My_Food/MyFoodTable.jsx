@@ -67,7 +67,7 @@ const MyFoodTable = ({ cars, mycars, setMycars }) => {
                     <RxCross1 onClick={() => deleteCar(cars?._id)} className="p-3 text-5xl rounded" style={{ color: '#774320', background: 'linear-gradient(90.74deg, rgba(119, 67, 32, 0.15) 0.16%, rgba(232, 197, 128, 0.15) 100%)' }}></RxCross1>
                     {/* The button to open modal */}
                     <Link to={`/update/${cars?._id}`} htmlFor="my-modal"><RxPencil1 className="p-3 text-5xl rounded" style={{ color: '#774320', background: 'linear-gradient(90.74deg, rgba(119, 67, 32, 0.15) 0.16%, rgba(232, 197, 128, 0.15) 100%)' }}></RxPencil1></Link>
-                    <Link to={`/request/${_id}`}><button className="bg-orange-700 py-2 px-2 rounded-lg text-white">Request</button></Link>
+                    <Link to={`/managefood/${_id}`}><button className="bg-orange-700 py-2 px-2 rounded-lg text-white">Manage Food</button></Link>
 
                     
                 </td>
