@@ -6,6 +6,7 @@ import Home from "../Pages/Home/Home/Home";
 import Blog from "../Pages/Blog/Blog";
 import Connect from "../Pages/Connect/Connect";
 import AllFoods from "../Pages/AllFood/AllFoods";
+import CardDetails from "../Pages/CardDetails/CardDetails";
 
 const router = createBrowserRouter([
     {
@@ -35,7 +36,12 @@ const router = createBrowserRouter([
         {
             path:"/allfood",
             element:<AllFoods></AllFoods>
-        }
+        },
+        {
+            path:'/details/:id',
+            element:<CardDetails></CardDetails>,
+            loader: ({params})=>fetch(`http://localhost:4000/foodItem/${params.id}`),
+          },
 
       ]
     },
