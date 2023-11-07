@@ -1,9 +1,11 @@
+import { useLoaderData } from "react-router-dom";
 
 
 const ManageFood = () => {
+    const requset = useLoaderData();
     return (
         <div>
-            hi
+            {requset.email}
         </div>
     );
 };

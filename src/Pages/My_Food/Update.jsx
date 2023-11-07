@@ -25,7 +25,7 @@ const Update = () => {
         
         console.log(updateCar);
 
-        fetch(`http://localhost:4000/foodItem/${cars._id}`, {
+        fetch( `http://localhost:4000/foodItem/${cars._id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

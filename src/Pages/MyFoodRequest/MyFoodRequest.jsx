@@ -1,16 +1,17 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
-import MyFoodTable from "./MyFoodTable";
+import MyFoodRequestTable from "./MyFoodRequestTable";
 
 
 
 
-const MyFood = () => {
+
+const MyFoodRequest = () => {
     const { user } = useContext(AuthContext);
     console.log(user);
     
     const [mycars, setMycars] = useState([]);
-    const url = `http://localhost:4000/myFoodItem/?email=${user?.email}`;
+    const url = `http://localhost:4000/reqFoodItem/?email=${user?.email}`;
 
     useEffect(() => {
         fetch(url)
@@ -31,7 +32,7 @@ const MyFood = () => {
 
                     <div className="w-full max-w-6xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
                         <header className="px-5 py-4 border-b border-gray-100 flex justify-between items-center">
-                            <h2 className="font-semibold text-gray-800 w-1/2">My Product</h2>
+                            <h2 className="font-semibold text-gray-800 w-1/2">My Requested Food</h2>
                            
                         </header>
                         <div className="p-3">
@@ -41,22 +42,22 @@ const MyFood = () => {
                                         <tr>
 
                                             <th className="p-2 whitespace-nowrap">
-                                                <div className="font-semibold text-left">Car Name & image</div>
+                                                <div className="font-semibold text-left">Food Image & Donator Name</div>
                                             </th>
                                             <th className="p-2 whitespace-nowrap">
-                                                <div className="font-semibold text-left">User name</div>
+                                                <div className="font-semibold text-left">Status</div>
                                             </th>
                                             <th className="p-2 whitespace-nowrap">
-                                                <div className="font-semibold text-left">Category</div>
+                                                <div className="font-semibold text-left">Expiration Date</div>
                                             </th>
                                             <th className="p-2 whitespace-nowrap">
-                                                <div className="font-semibold text-center">Price</div>
+                                                <div className="font-semibold text-center">Donation</div>
                                             </th>
                                             <th className="p-2 whitespace-nowrap">
-                                                <div className="font-semibold text-center">Rating</div>
+                                                <div className="font-semibold text-center">Request Date</div>
                                             </th>
                                             <th className="p-2 whitespace-nowrap">
-                                                <div className="font-semibold text-left">Quantity</div>
+                                                <div className="font-semibold text-left">Pickup Location</div>
                                             </th>
                                             <th className="p-2 whitespace-nowrap">
                                                 <div className="font-semibold text-center">Action</div>
@@ -65,7 +66,7 @@ const MyFood = () => {
                                     </thead>
                                     <tbody className="text-sm divide-y divide-gray-100">
                                         {
-                                            mycars.map(cars => <MyFoodTable key={cars._id} cars={cars} mycars={mycars} setMycars={setMycars}></MyFoodTable>)
+                                            mycars.map(cars => <MyFoodRequestTable key={cars._id} cars={cars} mycars={mycars} setMycars={setMycars}></MyFoodRequestTable>)
                                         }
                                     </tbody>
                                 </table>
@@ -78,4 +79,4 @@ const MyFood = () => {
     );
 };
 
-export default MyFood;
+export default MyFoodRequest;

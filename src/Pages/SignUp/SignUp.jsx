@@ -13,7 +13,7 @@ const SignUp = () => {
 
         const [error, setError] = useState('');
         const [success, setSuccess] = useState('');
-        const {createUser}= useContext(AuthContext)
+        const {createUser, updateInfo}= useContext(AuthContext)
         const handleRegister = e => {
             e.preventDefault();
             const form = new FormData(e.currentTarget);
@@ -42,9 +42,9 @@ const SignUp = () => {
             createUser(email,password)
             .then(result => {
                 // Signed up 
-    
                 const loggedUser = result.user;
                 console.log(loggedUser);
+                updateInfo(name, photoUrl)
                 setError('')
                 Swal.fire({
                     position: 'top-end',

@@ -2,7 +2,7 @@ import { RxPencil1, RxCross1 } from "react-icons/rx";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const MyFoodTable = ({ cars, mycars, setMycars }) => {
+const MyFoodRequestTable = ({ cars, mycars, setMycars }) => {
     const{_id}=cars;
     console.log(cars);
     const deleteCar= (id) => {
@@ -17,7 +17,7 @@ const MyFoodTable = ({ cars, mycars, setMycars }) => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch( `http://localhost:4000/foodItem/${id}`, {
+                fetch( `http://localhost:4000/reqFoodItem/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -41,33 +41,33 @@ const MyFoodTable = ({ cars, mycars, setMycars }) => {
              <tr>
                 <td className="p-2 whitespace-nowrap">
                     <div className="md:flex items-center">
-                        <img src={cars?.picture} className="w-40 rounded-md mr-4" alt="" />
-                        <div className="text-left font-bold">{cars?.name}</div>
+                        <img src={cars?.food_image} className="w-40 rounded-md mr-4" alt="" />
+                        <div className="text-left font-bold">{cars?.donator_name}</div>
 
                     </div>
                 </td>
                 <td className="p-2 whitespace-nowrap">
-                    <div className="font-medium text-gray-800">{cars?.userName}</div>
+                    <div className="font-medium text-gray-800">{cars?.status}</div>
                 </td>
                 <td className="p-2 whitespace-nowrap">
-                    <div className="text-left font-medium text-gray-700">{cars?.category}</div>
+                    <div className="text-left font-medium text-gray-700">{cars?.expiration_date}</div>
                 </td>
                 <td className="p-2 whitespace-nowrap">
-                    <div className="text-sm text-center">${cars?.price}</div>
+                    <div className="text-sm text-center">${cars?.donation}</div>
                 </td>
                 <td className="p-2 whitespace-nowrap">
-                    <div className="text-sm text-center">{cars?.rating}</div>
+                    <div className="text-sm text-center">{cars?.time}</div>
                 </td>
                 <td className="p-2 whitespace-nowrap">
-                    <div className="text-left text-sm text-green-500">{cars?.availableQuantity}
+                    <div className="text-left text-sm text-green-500">{cars?.location}
                     </div>
                 </td>
-                <td className="md:pl-12 py-4 whitespace-nowrap flex gap-4">
+                <td className="md:pl-12 py-4 whitespace-nowrap flex items-center gap-4">
 
-                    <RxCross1 onClick={() => deleteCar(cars?._id)} className="p-3 text-5xl rounded" style={{ color: '#774320', background: 'linear-gradient(90.74deg, rgba(119, 67, 32, 0.15) 0.16%, rgba(232, 197, 128, 0.15) 100%)' }}></RxCross1>
-                    {/* The button to open modal */}
-                    <Link to={`/update/${cars?._id}`} htmlFor="my-modal"><RxPencil1 className="p-3 text-5xl rounded" style={{ color: '#774320', background: 'linear-gradient(90.74deg, rgba(119, 67, 32, 0.15) 0.16%, rgba(232, 197, 128, 0.15) 100%)' }}></RxPencil1></Link>
-                    <Link to={`/managefood/${_id}`}><button className="bg-orange-700 py-2 px-2 rounded-lg text-white">Manage Food</button></Link>
+                   {
+                     cars?.status == 'Delivered' ? <p>No Cancel</p> :
+                   <button onClick={() => deleteCar(cars?._id)} className="bg-orange-700 py-2 px-2 rounded-lg text-white">Cancel Request</button>
+}
 
                     
                 </td>
@@ -77,7 +77,7 @@ const MyFoodTable = ({ cars, mycars, setMycars }) => {
     );
 };
 
-export default MyFoodTable;
+export default MyFoodRequestTable;
 
 
 

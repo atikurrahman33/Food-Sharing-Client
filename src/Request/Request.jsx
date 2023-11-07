@@ -65,7 +65,7 @@ function Request() {
                 if (json.insertedId) {
                     Swal.fire(
                         'Thank you!',
-                        'Your food Request Complete',
+                        'Your food Request complete',
                         'success'
                     );
                     form.reset();
@@ -95,6 +95,10 @@ function Request() {
                             <div className="form-control">
                                 <label className="block text-gray-700">User Email</label>
                                 <input type="email" name="userEmail" readOnly defaultValue={user?.email} className="input input-bordered" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="block text-gray-700">User Photo URL</label>
+                                <input type="email" name="userEmail" readOnly defaultValue={user?.photoURL} className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="block text-gray-700">Donator Name</label>
