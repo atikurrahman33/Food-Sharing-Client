@@ -1,8 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import img from '../../assets/A Great Pear-logos_transparent.png'
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Navbar = () => {
+
+    const { user, logOut } = useContext(AuthContext);
+    const handleSignOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(e => console.log(e.message))
+    }
 
     const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light");
     useEffect(() => {
@@ -167,14 +175,21 @@ const Navbar = () => {
                     <div className=" rounded-full flex gap-4 items-center  ">
                         <div>         
 
-                                <NavLink
-                                    to="/login"
-                                    className={({ isActive, }) =>
-                                        isActive ? "text-pink-700 font-bold underline" : ""
-                                    }
-                                >
-                                    Login
-                                </NavLink>
+                        {
+                    user ?
+                        <button onClick={handleSignOut} className="font-bold">Sign Out</button>
+                        :
+                        <NavLink
+                            to="/login"
+                            className={({ isActive,  }) =>
+                                isActive ? "text-pink-700 font-bold underline" : ""
+                            }
+                        >
+                            Login
+                        </NavLink>
+
+
+                }
                             
                         </div>
                         <div className="px-4 items-center"><label className="swap swap-rotate">

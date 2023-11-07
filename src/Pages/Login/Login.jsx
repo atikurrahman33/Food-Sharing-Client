@@ -1,11 +1,52 @@
 
 import { Link } from 'react-router-dom';
+
+import { useContext } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import Google from './Google/Google';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
+
 
 
 const Login = () => {
 
+    const { signIn } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate()
 
+
+    const handleLogin = e => {
+        e.preventDefault();
+        const form = new FormData(e.currentTarget);
+        const email = (form.get("email"));
+        const password = (form.get("password"));
+        console.log(email, password);
+        signIn(email, password)
+            .then((result) => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Successfully login',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                navigate(location?.state ? location.state : "/")
+                // ...
+            })
+            .catch((error) => {
+                console.error(error);
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: `${error.message}`,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            });
+    }
     return (
         <>
             <div className=' lg:p-16 '>
@@ -24,15 +65,15 @@ const Login = () => {
 
                             <h1 className="text-xl md:text-2xl font-bold leading-tight mt-12 ">Log in to your account</h1>
 
-                            <form className="mt-6" action="#" method="POST">
+                            <form onSubmit={handleLogin} className="mt-6" action="#" method="POST">
                                 <div>
                                     <label className="block text-gray-700">Email Address</label>
-                                    <input type="email" name="email" id="" placeholder="Enter Email Address" className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autoFocus autoComplete required />
+                                    <input type="email" name="email" id="" placeholder="Enter Email Address" className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete required />
                                 </div>
 
                                 <div className="mt-4">
                                     <label className="block text-gray-700">Password</label>
-                                    <input type="password" name="password" id="" placeholder="Enter Password" minLength="6" className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500
+                                    <input type="password" name="password" id="" placeholder="Enter Password" minlength="6" className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500
                 focus:bg-white focus:outline-none" required />
                                 </div>
 
@@ -50,6 +91,9 @@ const Login = () => {
 
                                 <Link to={`/signup`}> <p className="mt-8">You have no account? <a href="#" className="text-blue-500 hover:text-blue-700 font-semibold">Create an account</a></p></Link>
                             </form>
+
+
+
 
                         </div>
                     </div>
