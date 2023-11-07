@@ -24,8 +24,8 @@ function AddFoods() {
         const userObj = { // Use a different variable name
             name:name,
             food_image: photoURL,
-            userName,
-            email: userEmail,
+            donator_name:userName,
+            donator_email: userEmail,
             quantity: quantity,
             location:location,
             expiration_date:date,

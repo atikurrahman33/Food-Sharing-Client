@@ -47,17 +47,13 @@ const MyFood = () => {
                                                 <div className="font-semibold text-left">User name</div>
                                             </th>
                                             <th className="p-2 whitespace-nowrap">
-                                                <div className="font-semibold text-left">Category</div>
+                                                <div className="font-semibold text-left">Status</div>
                                             </th>
                                             <th className="p-2 whitespace-nowrap">
-                                                <div className="font-semibold text-center">Price</div>
+                                                <div className="font-semibold text-center">Quantity</div>
                                             </th>
-                                            <th className="p-2 whitespace-nowrap">
-                                                <div className="font-semibold text-center">Rating</div>
-                                            </th>
-                                            <th className="p-2 whitespace-nowrap">
-                                                <div className="font-semibold text-left">Quantity</div>
-                                            </th>
+                                           
+                                           
                                             <th className="p-2 whitespace-nowrap">
                                                 <div className="font-semibold text-center">Action</div>
                                             </th>

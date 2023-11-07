@@ -17,8 +17,9 @@ function Request() {
         const name = form.name.value;
         const dname = form.dname.value;
         const demail = form.demail.value;
-        const userName = form.userName.value;
+        const userName = user.displayName;
         const userEmail = form.userEmail.value;
+        const userphoto = form.userphoto.value;
         const location = form.location.value;
         const date = form.date.value;
         const status = form.status.value;
@@ -44,6 +45,7 @@ function Request() {
             donation: donation,
             location: location,
             expiration_date: date,
+            userphoto,
             status,
             note: note,
             donator_name: dname,
@@ -98,7 +100,7 @@ function Request() {
                             </div>
                             <div className="form-control">
                                 <label className="block text-gray-700">User Photo URL</label>
-                                <input type="email" name="userEmail" readOnly defaultValue={user?.photoURL} className="input input-bordered" required />
+                                <input type="email" name="userphoto" readOnly defaultValue={user?.photoURL} className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="block text-gray-700">Donator Name</label>
