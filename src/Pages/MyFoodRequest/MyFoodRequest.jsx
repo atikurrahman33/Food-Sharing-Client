@@ -12,7 +12,7 @@ const MyFoodRequest = () => {
     console.log(user);
     
     const [myfoods, setMyfoods] = useState([]);
-    const url = `http://localhost:4000/reqFoodItem/?email=${user?.email}`;
+    const url = `https://food-sharing-server-one.vercel.app/reqFoodItem/?email=${user?.email}`;
 
     useEffect(() => {
         fetch(url)

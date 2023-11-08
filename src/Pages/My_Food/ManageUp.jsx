@@ -21,7 +21,7 @@ const ManageUp = () => {
         
         console.log(updateFood);
 
-        fetch( `http://localhost:4000/reqFood/status/${data._id}`, {
+        fetch( `https://food-sharing-server-one.vercel.app/reqFood/status/${data._id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

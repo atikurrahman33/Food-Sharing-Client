@@ -67,7 +67,7 @@ const SignUp = () => {
     
     
     return (
-        <div className="flex gap-12 pl-40 py-10 ">
+        <div className="flex gap-12 md:w-full lg:pl-40 py-10 ">
            <Helmet>
         <title>Good Pear | Registration</title>
       </Helmet>

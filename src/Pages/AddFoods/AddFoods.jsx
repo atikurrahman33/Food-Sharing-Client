@@ -38,7 +38,7 @@ function AddFoods() {
 
         console.log(userObj);
 
-        fetch('http://localhost:4000/foodItem', {
+        fetch('https://food-sharing-server-one.vercel.app/foodItem', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

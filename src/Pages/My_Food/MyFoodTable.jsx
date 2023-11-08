@@ -17,7 +17,7 @@ const MyFoodTable = ({ foods, myfoods, setMyfoods }) => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch( `http://localhost:4000/foodItem/${id}`, {
+                fetch( `https://food-sharing-server-one.vercel.app/foodItem/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

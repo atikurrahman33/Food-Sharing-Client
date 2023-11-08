@@ -7,7 +7,7 @@ const AllFoods = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:4000/foodItem")
+    fetch("https://food-sharing-server-one.vercel.app/foodItem")
       .then((response) => response.json())
       .then((data) => {
         // Sort the data by expiration_date in ascending order

@@ -48,7 +48,7 @@ const router = createBrowserRouter([
         {
             path:'/details/:id',
             element:<CardDetails></CardDetails>,
-            loader: ({params})=>fetch(`http://localhost:4000/foodItem/${params.id}`),
+            loader: ({params})=>fetch(`https://food-sharing-server-one.vercel.app/foodItem/${params.id}`),
           },
           {
             path:'/addfoods',
@@ -61,18 +61,18 @@ const router = createBrowserRouter([
           {
             path: "/update/:id",
             element: <Update></Update>,
-            loader: ({ params }) => fetch(`http://localhost:4000/foodItem/${params.id}`),
+            loader: ({ params }) => fetch(`https://food-sharing-server-one.vercel.app/foodItem/${params.id}`),
     
           },
           {
             path:'/request/:id',
             element:<Request></Request>,
-            loader: ({params})=>fetch(`http://localhost:4000/foodItem/${params.id}`),
+            loader: ({params})=>fetch(`https://food-sharing-server-one.vercel.app/foodItem/${params.id}`),
           },
           {
             path:'/managefood/:name',
             element:<ManageFood></ManageFood>,
-            loader: ({params}) => fetch(`http://localhost:4000/manageFood/${params.name}`)
+            loader: ({params}) => fetch(`https://food-sharing-server-one.vercel.app/manageFood/${params.name}`)
             
           },
           {
@@ -82,7 +82,7 @@ const router = createBrowserRouter([
           {
             path:'/manageup/:id',
             element:<ManageUp></ManageUp>,
-            loader: ({params}) => fetch(`http://localhost:4000/reqFood/${params.id}`)
+            loader: ({params}) => fetch(`https://food-sharing-server-one.vercel.app/reqFood/${params.id}`)
           },
 
       ]

@@ -26,7 +26,7 @@ const Update = () => {
         
         console.log(updateFood);
 
-        fetch( `http://localhost:4000/foodItem/${foods._id}`, {
+        fetch( `https://food-sharing-server-one.vercel.app/${foods._id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

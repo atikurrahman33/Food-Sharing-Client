@@ -6,7 +6,7 @@ const Foods = () => {
   const [food, setFood] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/foodItem")
+    fetch("https://food-sharing-server-one.vercel.app/foodItem")
       .then((response) => response.json())
       .then((data) => {
         // Filter out items with status 'Delivered'
