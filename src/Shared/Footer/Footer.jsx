@@ -18,8 +18,11 @@ const Footer = () => {
     <a className="link link-hover font-bold">Advertisement</a>
   </nav> 
   <nav>
-    <header className="footer-title">Company</header> 
+    <header className="footer-title">Company</header>                 
                 <Link className="hover:text-pink-500 link-hover font-bold" to='/'>Home</Link>
+                <Link className="hover:text-pink-500 link-hover font-bold" to='/allfood'>Available Food</Link>
+                <Link className="hover:text-pink-500 link-hover font-bold" to='/blog'>Blog</Link>
+                <Link className="hover:text-pink-500 link-hover font-bold" to='/connect'>Contact</Link>
   </nav> 
   <nav>
     <header className="footer-title font-bold">Legal</header> 

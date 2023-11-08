@@ -65,7 +65,7 @@ const MyFoodRequestTable = ({ cars, mycars, setMycars }) => {
                 <td className="md:pl-12 py-4 whitespace-nowrap flex items-center gap-4">
 
                    {
-                     cars?.status == 'Delivered' ? <p>No Cancel</p> :
+                     cars?.status == 'Delivered' ? <p className="bg-orange-700 py-2 px-2 rounded-lg text-white">Not Cancel</p> :
                    <button onClick={() => deleteCar(cars?._id)} className="bg-orange-700 py-2 px-2 rounded-lg text-white">Cancel Request</button>
 }
 

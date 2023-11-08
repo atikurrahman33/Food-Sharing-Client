@@ -9,10 +9,12 @@ const Foods = () => {
     fetch("http://localhost:4000/foodItem")
       .then((response) => response.json())
       .then((data) => {
-        // Sort the data by quantity in descending order
-        data.sort((a, b) => b.quantity - a.quantity);
+        // Filter out items with status 'Delivered'
+        const filteredData = data.filter((foodItem) => foodItem.status !== 'Delivered');
+        // Sort the filtered data by quantity in descending order
+        filteredData.sort((a, b) => b.quantity - a.quantity);
         // Get the top 6 items
-        const top6Food = data.slice(0, 6);
+        const top6Food = filteredData.slice(0, 6);
         setFood(top6Food);
       });
   }, []);
