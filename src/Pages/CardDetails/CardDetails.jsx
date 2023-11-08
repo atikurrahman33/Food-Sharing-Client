@@ -1,18 +1,21 @@
+import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link, useLoaderData } from "react-router-dom";
-
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const CardDetails = () => {
+    const { user } = useContext(AuthContext);
     const details = useLoaderData();
-    const {_id, name, quantity, location, expiration_date, food_image, donator_name, } = details;
+    const { _id, name, quantity, location, expiration_date, food_image, donator_name } = details;
+
     return (
         <div className="py-12">
-             <Helmet>
-        <title>Good Pear | Details</title>
-      </Helmet>
+            <Helmet>
+                <title>Good Pear | Details</title>
+            </Helmet>
             <ol className="text-2xl font-bold pl-14 mt-4 text-orange-700">
-                <li>1.Donator Name:{donator_name} </li>
-                <li>2.PickUp Location:{location}</li>
+                <li>1. Donator Name: {donator_name} </li>
+                <li>2. PickUp Location: {location}</li>
             </ol>
 
             <div className="card w-96 bg-base-100 shadow-xl mx-auto pt-6">
@@ -23,12 +26,17 @@ const CardDetails = () => {
                     <h2 className="card-title text-2xl font-bold">{name}</h2>
                     <p className="font-bold">Food Quantity: {quantity}</p>
                     <p className="font-bold">Expiration Date: {expiration_date}</p>
-                    <div className="card-actions pl-24">
-                        <Link to={`/request/${_id}`}><button className="bg-orange-600 rounded-lg py-2 px-3 text-white">Request</button></Link>
+                    <div>
+                        {user?.email ? (
+                            <Link to={`/request/${_id}`}>
+                                <button className="bg-orange-600 rounded-lg py-2 px-3 text-white">
+                                    Request
+                                </button>
+                            </Link>
+                        ) : null}
                     </div>
                 </div>
             </div>
-
         </div>
     );
 };
