@@ -12,6 +12,7 @@ function AddFoods() {
 
         const form = e.target;
         const photoURL = form.photoURL.value;
+        const userPhoto = form.userPhoto.value;
         const name = form.name.value;
         const userName = form.userName.value;
         const userEmail = form.userEmail.value;
@@ -25,9 +26,10 @@ function AddFoods() {
             name:name,
             food_image: photoURL,
             donator_name:userName,
-            donator_email: userEmail,
+            email: userEmail,
             quantity: quantity,
             location:location,
+            donator_image:userPhoto,
             expiration_date:date,
             status,
             note:description
@@ -65,30 +67,42 @@ function AddFoods() {
                     <form onSubmit={handleUser}>
                         <div className="md:grid grid-cols-2 gap-4 space-y-4 md:space-y-0">
                             <div className="form-control">
+                            <label className="mb-2 font-bold">Food Image</label>
                                 <input type="text" name="photoURL" placeholder="Photo url link..." className="input input-bordered" required />
                             </div>
                             <div className="form-control">
+                            <label className="mb-2 font-bold">Food Name</label>
                                 <input type="text" name="name" placeholder="Food Name" className="input input-bordered" />
                             </div>
                             <div className="form-control">
+                            <label className="mb-2 font-bold"> Name</label>
                                 <input type="text" name="userName" readOnly defaultValue={user?.displayName} className="input input-bordered" required />
                             </div>
                             <div className="form-control">
+                            <label className="mb-2 font-bold"> Email</label>
                                 <input type="email" name="userEmail" readOnly defaultValue={user?.email} className="input input-bordered" required />
+                            </div>
+                            <div className="form-control">
+                            <label className="mb-2 font-bold"> Photo URL</label>
+                                <input type="text" name="userPhoto" readOnly defaultValue={user?.photoURL} className="input input-bordered" required />
                             </div>
                             
                             <div className="form-control">
+                            <label className="mb-2 font-bold">Pickup Location</label>
                             <input type="text" name="location" placeholder="PickUp Location" className="input input-bordered" required />
                                
                             </div>
                             <div className="form-control">
+                            <label className="mb-2 font-bold">Expiration Date</label>
                             <input type="date" name="date"  className="input input-bordered" required />
                             </div>
                             <div className="form-control">
-                                <input type="text" name="status" readOnly defaultValue={"Available"} className="input input-bordered" required />
+                            <label className="mb-2 font-bold">Food Status</label>
+                                <input type="text" name="status"  defaultValue={"Available"} className="input input-bordered" required />
                             </div>
                             <div className="form-control">
-                                <input type="number" name="quantity" placeholder="Available quantity" className="input input-bordered" required />
+                            <label className="mb-2 font-bold">Quantity</label>
+                                <input type="number" name="quantity" placeholder="Available quantity" className="input input-bordered " required />
                             </div>
                         </div>
                         <div className="form-control">

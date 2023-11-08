@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const ManageFood = () => {
     const reqFood = useLoaderData();
@@ -8,9 +8,9 @@ const ManageFood = () => {
     // .then(res => res.json())
     // .then(data => setReqFood(data))
     return (
-        <div className="py-12">
+        <div className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {
-            reqFood.map(food => <p key={food._id}>
+            reqFood.map(food => <div key={food._id}>
                 <div className="card w-96 bg-base-100 shadow-xl mx-auto">
   
   <div className="card-body font-bold">
@@ -19,11 +19,12 @@ const ManageFood = () => {
     <p>R. Email: {food.email}</p>
     <h1>Request Date: {food.time}</h1>
     <div className="card-action pl-24">
-      <button className="py-2 px-3 bg-orange-600 text-white rounded-lg ">Deliver</button>
+        <Link to={`/manageup/${food?._id}`}><button className="py-2 px-3 bg-orange-600 text-white rounded-lg ">Deliver</button></Link>
+      
     </div>
   </div>
 </div>
-            </p>)
+            </div>)
           }
         </div>
     );

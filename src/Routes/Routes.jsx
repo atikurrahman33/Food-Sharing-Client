@@ -13,6 +13,8 @@ import MyFood from "../Pages/My_Food/MyFood";
 import Request from "../Request/Request";
 import ManageFood from "../Pages/My_Food/ManageFood";
 import MyFoodRequest from "../Pages/MyFoodRequest/MyFoodRequest";
+import ManageUp from "../Pages/My_Food/ManageUp";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -50,11 +52,11 @@ const router = createBrowserRouter([
           },
           {
             path:'/addfoods',
-            element:<AddFoods></AddFoods>,
+            element:<PrivateRoute><AddFoods></AddFoods></PrivateRoute>
           },
           {
             path:'/myfood',
-            element:<MyFood></MyFood>
+            element:<PrivateRoute><MyFood></MyFood></PrivateRoute>,
           },
           {
             path: "/update/:id",
@@ -75,7 +77,12 @@ const router = createBrowserRouter([
           },
           {
             path:'/myrequest',
-            element:<MyFoodRequest></MyFoodRequest>
+            element:<PrivateRoute><MyFoodRequest></MyFoodRequest></PrivateRoute>,
+          },
+          {
+            path:'/manageup/:id',
+            element:<ManageUp></ManageUp>,
+            loader: ({ params }) => fetch(`http://localhost:4000/foodItem/${params.id}`),
           }
 
       ]

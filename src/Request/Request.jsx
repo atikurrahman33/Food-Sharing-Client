@@ -5,9 +5,10 @@ import { AuthContext } from '../AuthProvider/AuthProvider';
 
 function Request() {
     const data = useLoaderData();
-    const { _id, name, location, expiration_date, food_image, donator_name, donator_email } = data;
+    const { _id, name, location, expiration_date, food_image, donator_name,email } = data;
 
     const { user } = useContext(AuthContext);
+    console.log(data)
 
     const handleUser = e => {
         e.preventDefault();
@@ -108,7 +109,7 @@ function Request() {
                             </div>
                             <div className="form-control">
                                 <label className="block text-gray-700">Donator Email Address</label>
-                                <input type="text" name="demail" readOnly defaultValue={donator_email} className="input input-bordered" />
+                                <input type="text" name="demail" readOnly defaultValue={email} className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="block text-gray-700">Pickup Location</label>

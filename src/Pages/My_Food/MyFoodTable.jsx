@@ -2,9 +2,9 @@ import { RxPencil1, RxCross1 } from "react-icons/rx";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const MyFoodTable = ({ cars, mycars, setMycars }) => {
-    const{_id}=cars;
-    console.log(cars);
+const MyFoodTable = ({ foods, myfoods, setMyfoods }) => {
+    const{_id}=foods;
+    console.log(foods);
     const deleteCar= (id) => {
         console.log(id);
         Swal.fire({
@@ -29,8 +29,8 @@ const MyFoodTable = ({ cars, mycars, setMycars }) => {
                                 'Your Car has been deleted.',
                                 'success'
                             )
-                            const remaining = mycars.filter(c => c._id !== id);
-                            setMycars(remaining);
+                            const remaining = myfoods.filter(c => c._id !== id);
+                            setMyfoods(remaining);
                         }
                     })
             }
@@ -41,27 +41,27 @@ const MyFoodTable = ({ cars, mycars, setMycars }) => {
              <tr>
                 <td className="p-2 whitespace-nowrap">
                     <div className="md:flex items-center">
-                        <img src={cars?.food_image} className="w-40 rounded-md mr-4" alt="" />
-                        <div className="text-left font-bold">{cars?.name}</div>
+                        <img src={foods?.food_image} className="w-40 rounded-md mr-4" alt="" />
+                        <div className="text-left font-bold">{foods?.name}</div>
 
                     </div>
                 </td>
                 <td className="p-2 whitespace-nowrap">
-                    <div className="font-medium text-gray-800">{cars?.location}</div>
+                    <div className="font-medium text-gray-800">{foods?.location}</div>
                 </td>
                 <td className="p-2 whitespace-nowrap">
-                    <div className="text-left font-medium text-gray-700">{cars?.status}</div>
+                    <div className="text-left font-medium text-gray-700">{foods?.status}</div>
                 </td>
                 <td className="p-2 whitespace-nowrap">
-                    <div className="text-sm text-center">{cars?.quantity}</div>
+                    <div className="text-sm text-center">{foods?.quantity}</div>
                 </td>
                
                 <td className="md:pl-12 py-4 whitespace-nowrap flex gap-4">
 
-                    <RxCross1 onClick={() => deleteCar(cars?._id)} className="p-3 text-5xl rounded" style={{ color: '#774320', background: 'linear-gradient(90.74deg, rgba(119, 67, 32, 0.15) 0.16%, rgba(232, 197, 128, 0.15) 100%)' }}></RxCross1>
+                    <RxCross1 onClick={() => deleteCar(foods?._id)} className="p-3 text-5xl rounded" style={{ color: '#774320', background: 'linear-gradient(90.74deg, rgba(119, 67, 32, 0.15) 0.16%, rgba(232, 197, 128, 0.15) 100%)' }}></RxCross1>
                     {/* The button to open modal */}
-                    <Link to={`/update/${cars?._id}`} htmlFor="my-modal"><RxPencil1 className="p-3 text-5xl rounded" style={{ color: '#774320', background: 'linear-gradient(90.74deg, rgba(119, 67, 32, 0.15) 0.16%, rgba(232, 197, 128, 0.15) 100%)' }}></RxPencil1></Link>
-                    <Link to={`/managefood/${cars?.name}`}><button className="bg-orange-700 py-2 px-2 rounded-lg text-white">Manage Food</button></Link>
+                    <Link to={`/update/${foods?._id}`} htmlFor="my-modal"><RxPencil1 className="p-3 text-5xl rounded" style={{ color: '#774320', background: 'linear-gradient(90.74deg, rgba(119, 67, 32, 0.15) 0.16%, rgba(232, 197, 128, 0.15) 100%)' }}></RxPencil1></Link>
+                    <Link to={`/managefood/${foods?.name}`}><button className="bg-orange-700 py-2 px-2 rounded-lg text-white">Manage Food</button></Link>
 
                     
                 </td>

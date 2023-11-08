@@ -15,7 +15,7 @@ const AllFoodCard = ({ food }) => {
             </div>
             <div className="flex justify-between px-8">
                 <h2 className="font-bold text-lg">D.Name:{donator_name} </h2>
-                <img className="rounded-full h-10 " src={donator_image} alt="" />
+                <img className="rounded-full h-12 w-12 " src={donator_image} alt="" />
             </div>
             <div className="pl-3">
                 <h3 className="font-bold">Food Quantity:{quantity} </h3>

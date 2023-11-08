@@ -9,17 +9,17 @@ const MyFood = () => {
     const { user } = useContext(AuthContext);
     console.log(user);
     
-    const [mycars, setMycars] = useState([]);
+    const [myfoods, setMyfoods] = useState([]);
     const url = `http://localhost:4000/myFoodItem/?email=${user?.email}`;
 
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
             .then(data => {
-                setMycars(data);
+                setMyfoods(data);
             })
     }, [url])
-    console.log(mycars);
+    console.log(myfoods);
 
     
 
@@ -61,7 +61,7 @@ const MyFood = () => {
                                     </thead>
                                     <tbody className="text-sm divide-y divide-gray-100">
                                         {
-                                            mycars.map(cars => <MyFoodTable key={cars._id} cars={cars} mycars={mycars} setMycars={setMycars}></MyFoodTable>)
+                                            myfoods.map(foods => <MyFoodTable key={foods._id} foods={foods} myfoods={myfoods} setMyfoods={setMyfoods}></MyFoodTable>)
                                         }
                                     </tbody>
                                 </table>
