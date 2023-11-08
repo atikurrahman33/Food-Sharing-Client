@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 const MyFoodTable = ({ foods, myfoods, setMyfoods }) => {
     const{_id}=foods;
     console.log(foods);
-    const deleteCar= (id) => {
+    const deleteFood= (id) => {
         console.log(id);
         Swal.fire({
             title: 'Are you sure?',
@@ -58,7 +58,7 @@ const MyFoodTable = ({ foods, myfoods, setMyfoods }) => {
                
                 <td className="md:pl-12 py-4 whitespace-nowrap flex gap-4">
 
-                    <RxCross1 onClick={() => deleteCar(foods?._id)} className="p-3 text-5xl rounded" style={{ color: '#774320', background: 'linear-gradient(90.74deg, rgba(119, 67, 32, 0.15) 0.16%, rgba(232, 197, 128, 0.15) 100%)' }}></RxCross1>
+                    <RxCross1 onClick={() => deleteFood(foods?._id)} className="p-3 text-5xl rounded" style={{ color: '#774320', background: 'linear-gradient(90.74deg, rgba(119, 67, 32, 0.15) 0.16%, rgba(232, 197, 128, 0.15) 100%)' }}></RxCross1>
                     {/* The button to open modal */}
                     <Link to={`/update/${foods?._id}`} htmlFor="my-modal"><RxPencil1 className="p-3 text-5xl rounded" style={{ color: '#774320', background: 'linear-gradient(90.74deg, rgba(119, 67, 32, 0.15) 0.16%, rgba(232, 197, 128, 0.15) 100%)' }}></RxPencil1></Link>
                     <Link to={`/managefood/${foods?.name}`}><button className="bg-orange-700 py-2 px-2 rounded-lg text-white">Manage Food</button></Link>

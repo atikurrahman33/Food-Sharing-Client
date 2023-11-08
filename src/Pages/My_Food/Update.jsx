@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useLoaderData, useNavigate,  } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -7,7 +8,7 @@ const Update = () => {
     console.log(foods);
 
     const navigate = useNavigate();
-    const updateCarData = (e) =>{
+    const updateFoodData = (e) =>{
         e.preventDefault();
         const form = e.target;
         const food_image = form.photoURL.value;
@@ -15,7 +16,7 @@ const Update = () => {
         const status = form.status.value;
         const quantity = form.quantity.value;
         const location = form.pickupLocation.value;
-        const updateCar = {
+        const updateFood = {
             food_image,
             name,
             status,
@@ -23,14 +24,14 @@ const Update = () => {
             location
         }
         
-        console.log(updateCar);
+        console.log(updateFood);
 
         fetch( `http://localhost:4000/foodItem/${foods._id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(updateCar)
+            body: JSON.stringify(updateFood)
         })
             .then(res => res.json())
             .then(data => {
@@ -38,7 +39,7 @@ const Update = () => {
                 if (data.modifiedCount > 0) {
                     Swal.fire(
                         'Good job!',
-                        'Car updated successfully',
+                        'Food updated successfully',
                         'success'
                     )
                     form.reset();
@@ -49,13 +50,16 @@ const Update = () => {
     }
     return (
         <div>
+             <Helmet>
+                <title>Good Pear | Food Update</title>
+            </Helmet>
 
             <div className="card-body ">
-                <form onSubmit={updateCarData}>
+                <form onSubmit={updateFoodData}>
                     <div className="md:grid grid-cols-2 gap-4 space-y-4 md:space-y-0">
                         <div className="form-control ">
                             <label className="mb-2 font-bold">Photo URL</label>
-                            <input type="text" name="photoURL" defaultValue={foods.food_image} className="input input-bordered" required />
+                            <input type="text" name="photoURL" defaultValue={foods.food_image} className="input input-bordered"  />
                         </div>
                         <div className="form-control">
                             <label className="mb-2 font-bold">Name</label>
@@ -63,12 +67,12 @@ const Update = () => {
                         </div>
                         <div className="form-control">
                             <label className="mb-2 font-bold">Status</label>
-                            <input type="text" name="status" defaultValue={foods.status} className="input input-bordered" required />
+                            <input type="text" name="status" defaultValue={foods.status} className="input input-bordered"  />
                         </div>
 
                         <div className="form-control">
                             <label className="mb-2 font-bold">Quantity</label>
-                            <input type="text" name="quantity" defaultValue={foods.quantity} className="input input-bordered" required />
+                            <input type="text" name="quantity" defaultValue={foods.quantity} className="input input-bordered"  />
                         </div>
                     </div>
                     <div className="form-control">

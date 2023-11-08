@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { Link, useLoaderData } from "react-router-dom";
 
 
@@ -6,6 +7,9 @@ const CardDetails = () => {
     const {_id, name, quantity, location, expiration_date, food_image, donator_name, } = details;
     return (
         <div className="py-12">
+             <Helmet>
+        <title>Good Pear | Details</title>
+      </Helmet>
             <ol className="text-2xl font-bold pl-14 mt-4 text-orange-700">
                 <li>1.Donator Name:{donator_name} </li>
                 <li>2.PickUp Location:{location}</li>

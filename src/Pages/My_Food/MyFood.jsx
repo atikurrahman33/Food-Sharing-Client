@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import MyFoodTable from "./MyFoodTable";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -24,7 +25,10 @@ const MyFood = () => {
     
 
     return (
-        <div>
+        <div className="w-full">
+             <Helmet>
+                <title>Good Pear | My Food</title>
+            </Helmet>
             
             <section className="antialiased bg-gray-100 text-gray-600 py-10 mb-10 px-4">
                 <div className="flex flex-col justify-center">

@@ -3,6 +3,7 @@ import { useContext, useState } from 'react';
 import Swal from 'sweetalert2';
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import Google from "../Login/Google/Google";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -67,6 +68,9 @@ const SignUp = () => {
     
     return (
         <div className="flex gap-12 pl-40 py-10 ">
+           <Helmet>
+        <title>Good Pear | Registration</title>
+      </Helmet>
             <div>
                 <img className="h-[600px] w-[800px]" src="https://i.ibb.co/cNgFJqD/Atik.jpg" alt="" />
             </div>

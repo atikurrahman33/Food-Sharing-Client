@@ -6,6 +6,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import Google from './Google/Google';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import { Helmet } from 'react-helmet-async';
 
 
 
@@ -50,6 +51,9 @@ const Login = () => {
     return (
         <>
             <div className=' lg:p-16 '>
+            <Helmet>
+        <title>Good Pear | Login</title>
+      </Helmet>
 
                 <section className="flex flex-col md:flex-row h-screen items-center ">
 

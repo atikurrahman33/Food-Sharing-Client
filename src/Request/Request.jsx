@@ -2,6 +2,7 @@ import Swal from 'sweetalert2';
 import { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import { Helmet } from 'react-helmet-async';
 
 function Request() {
     const data = useLoaderData();
@@ -78,6 +79,9 @@ function Request() {
 
     return (
         <div>
+             <Helmet>
+        <title>Good Pear | Food Request</title>
+      </Helmet>
             <h1 className="font-bold text-orange-700 md:text-4xl text-center">Request YOUR FOOD ITEM</h1>
             <div className="flex-shrink-0 mx-auto bg-[#F3F3F3] md:p-10 my-10">
                 <div className="card-body">

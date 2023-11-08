@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import MyFoodRequestTable from "./MyFoodRequestTable";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -10,22 +11,26 @@ const MyFoodRequest = () => {
     const { user } = useContext(AuthContext);
     console.log(user);
     
-    const [mycars, setMycars] = useState([]);
+    const [myfoods, setMyfoods] = useState([]);
     const url = `http://localhost:4000/reqFoodItem/?email=${user?.email}`;
 
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
             .then(data => {
-                setMycars(data);
+                setMyfoods(data);
             })
     }, [url])
-    console.log(mycars);
+    console.log(myfoods);
 
     
 
     return (
         <div>
+             <Helmet>
+                <title>Good Pear | Food Request</title>
+            </Helmet>
+           
             
             <section className="antialiased bg-gray-100 text-gray-600 py-10 mb-10 px-4">
                 <div className="flex flex-col justify-center">
@@ -66,7 +71,7 @@ const MyFoodRequest = () => {
                                     </thead>
                                     <tbody className="text-sm divide-y divide-gray-100">
                                         {
-                                            mycars.map(cars => <MyFoodRequestTable key={cars._id} cars={cars} mycars={mycars} setMycars={setMycars}></MyFoodRequestTable>)
+                                            myfoods.map(foods => <MyFoodRequestTable key={foods._id} foods={foods} myfoods={myfoods} setMyfoods={setMyfoods}></MyFoodRequestTable>)
                                         }
                                     </tbody>
                                 </table>

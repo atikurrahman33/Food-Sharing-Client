@@ -82,8 +82,8 @@ const router = createBrowserRouter([
           {
             path:'/manageup/:id',
             element:<ManageUp></ManageUp>,
-            loader: ({ params }) => fetch(`http://localhost:4000/foodItem/${params.id}`),
-          }
+            loader: ({params}) => fetch(`http://localhost:4000/reqFood/${params.id}`)
+          },
 
       ]
     },

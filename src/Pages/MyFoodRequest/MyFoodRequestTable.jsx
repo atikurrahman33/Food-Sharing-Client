@@ -2,10 +2,10 @@ import { RxPencil1, RxCross1 } from "react-icons/rx";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const MyFoodRequestTable = ({ cars, mycars, setMycars }) => {
-    const{_id}=cars;
-    console.log(cars);
-    const deleteCar= (id) => {
+const MyFoodRequestTable = ({ foods, myfoods, setMyfoods }) => {
+    const{_id}=foods;
+    console.log(foods);
+    const deleteFood= (id) => {
         console.log(id);
         Swal.fire({
             title: 'Are you sure?',
@@ -29,8 +29,8 @@ const MyFoodRequestTable = ({ cars, mycars, setMycars }) => {
                                 'Your Car has been deleted.',
                                 'success'
                             )
-                            const remaining = mycars.filter(c => c._id !== id);
-                            setMycars(remaining);
+                            const remaining = myfoods.filter(c => c._id !== id);
+                            setMyfoods(remaining);
                         }
                     })
             }
@@ -41,33 +41,32 @@ const MyFoodRequestTable = ({ cars, mycars, setMycars }) => {
              <tr>
                 <td className="p-2 whitespace-nowrap">
                     <div className="md:flex items-center">
-                        <img src={cars?.food_image} className="w-40 rounded-md mr-4" alt="" />
-                        <div className="text-left font-bold">{cars?.donator_name}</div>
+                        <img src={foods?.food_image} className="w-40 rounded-md mr-4" alt="" />
+                        <div className="text-left font-bold">{foods?.name}</div>
 
                     </div>
                 </td>
                 <td className="p-2 whitespace-nowrap">
-                    <div className="font-medium text-gray-800">{cars?.status}</div>
+                    <div className="font-medium text-gray-800">{foods?.status}</div>
                 </td>
                 <td className="p-2 whitespace-nowrap">
-                    <div className="text-left font-medium text-gray-700">{cars?.expiration_date}</div>
+                    <div className="text-left font-medium text-gray-700">{foods?.expiration_date}</div>
                 </td>
                 <td className="p-2 whitespace-nowrap">
-                    <div className="text-sm text-center">${cars?.donation}</div>
+                    <div className="text-sm text-center">{foods?.donation}</div>
                 </td>
                 <td className="p-2 whitespace-nowrap">
-                    <div className="text-sm text-center">{cars?.time}</div>
+                    <div className="text-sm text-center">{foods?.time}</div>
                 </td>
                 <td className="p-2 whitespace-nowrap">
-                    <div className="text-left text-sm text-green-500">{cars?.location}
-                    </div>
+                    <div className="text-sm text-center">{foods?.location}</div>
                 </td>
-                <td className="md:pl-12 py-4 whitespace-nowrap flex items-center gap-4">
+               
+                <td className="md:pl-12 py-4 whitespace-nowrap flex gap-4">
 
-                   {
-                     cars?.status == 'Delivered' ? <p className="bg-orange-700 py-2 px-2 rounded-lg text-white">Not Cancel</p> :
-                   <button onClick={() => deleteCar(cars?._id)} className="bg-orange-700 py-2 px-2 rounded-lg text-white">Cancel Request</button>
-}
+                    <input onClick={() => deleteFood(foods?._id)} className="py-2 bg-orange-600 text-white px-3 rounded-lg" type="submit" value="Cancel Request" />
+                   
+                   
 
                     
                 </td>

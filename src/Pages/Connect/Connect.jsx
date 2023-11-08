@@ -2,10 +2,14 @@ import { FaFacebookF } from 'react-icons/fa6';
 import { AiFillTwitterCircle } from 'react-icons/ai';
 import { FaInstagram } from 'react-icons/fa';
 import { AiOutlineYoutube } from 'react-icons/ai';
+import { Helmet } from 'react-helmet-async';
 
 const Connect = () => {
     return (
         <div className="py-16">
+             <Helmet>
+        <title>Good Pear | Connect</title>
+      </Helmet>
             <div className="text-center text-3xl font-extrabold text-orange-600">Connected Us Today!</div>
            <div className="grid grid-cols-1 md:grid-cols-2 pl-[25%] gap-8 ">
            <div className="pt-4">

@@ -1,6 +1,7 @@
 import Swal from 'sweetalert2';
 import { useContext } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import { Helmet } from 'react-helmet-async';
 
 
 function AddFoods() {
@@ -60,6 +61,9 @@ function AddFoods() {
 
   return (
     <div>
+         <Helmet>
+        <title>Good Pear | Add Food</title>
+      </Helmet>
      <h1 className="font-bold text-orange-700 md:text-4xl text-center">ADD YOUR FOOD ITEM</h1>
             <div className=" flex-shrink-0 mx-auto bg-[#F3F3F3] md:p-10 my-10">
             
@@ -98,7 +102,7 @@ function AddFoods() {
                             </div>
                             <div className="form-control">
                             <label className="mb-2 font-bold">Food Status</label>
-                                <input type="text" name="status"  defaultValue={"Available"} className="input input-bordered" required />
+                                <input type="text" name="status"  defaultValue={'Available'} className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                             <label className="mb-2 font-bold">Quantity</label>

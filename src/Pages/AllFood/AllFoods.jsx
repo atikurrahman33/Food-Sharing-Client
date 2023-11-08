@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import AllFoodCard from "./AllFoodCard";
+import { Helmet } from "react-helmet-async";
 
 const AllFoods = () => {
   const [food, setFood] = useState([]);
@@ -21,6 +22,9 @@ const AllFoods = () => {
 
   return (
     <div className="pb-8">
+       <Helmet>
+        <title>Good Pear | All Food</title>
+      </Helmet>
       <div className="text-center m-5">
         <h1 className="text-5xl font-bold m-3">Our Food</h1>
         <input

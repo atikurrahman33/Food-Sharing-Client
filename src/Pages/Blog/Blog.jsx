@@ -1,8 +1,12 @@
-import React from 'react';
+
+import { Helmet } from 'react-helmet-async';
 
 const FoodBlog = () => {
   return (
     <div className="p-10">
+      <Helmet>
+        <title>Good Pear | Blog</title>
+      </Helmet>
       <div>
         <h3 className="text-3xl font-bold pb-2 text-orange-600">
           Discover the World of Culinary Delights
