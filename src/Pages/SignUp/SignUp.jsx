@@ -67,13 +67,14 @@ const SignUp = () => {
     
     
     return (
-        <div className="flex gap-12 md:w-full lg:pl-40 py-10 ">
+        <div className=" flex flex-col md:flex-row h-screen items-center my-12 mx-4 ">
            <Helmet>
         <title>Good Pear | Registration</title>
       </Helmet>
-            <div>
-                <img className="h-[600px] w-[800px]" src="https://i.ibb.co/cNgFJqD/Atik.jpg" alt="" />
-            </div>
+            
+            <div className="bg-indigo-600 hidden lg:block w-full md:w-1/2 xl:w-2/3 h-screen ">
+                        <img src="https://source.unsplash.com/random" alt="" className="w-full h-full object-cover" />
+                    </div>
             
 <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 bg-white">
   <div className="sm:mx-auto sm:w-full sm:max-w-sm">
