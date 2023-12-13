@@ -20,4 +20,4 @@
 * We try to add more feature but for time shortes it's not possible this time.
 ## Live Link
 
-* This is my webside live link :https://654bcaa69e006023693a5742--lighthearted-jalebi-697e9c.netlify.app/
+* This is my webside live link : https://foodsharing.netlify.app

@@ -11,7 +11,7 @@ const MyFood = () => {
     console.log(user);
     
     const [myfoods, setMyfoods] = useState([]);
-    const url = `https://food-sharing-server-one.vercel.app/?email=${user?.email}`;
+    const url = `https://food-sharing-server-one.vercel.app/myFoodItem/?email=${user?.email}`;
 
     useEffect(() => {
         fetch(url)
@@ -45,10 +45,10 @@ const MyFood = () => {
                                         <tr>
 
                                             <th className="p-2 whitespace-nowrap">
-                                                <div className="font-semibold text-left">Car Name & image</div>
+                                                <div className="font-semibold text-left">Food Name & image</div>
                                             </th>
                                             <th className="p-2 whitespace-nowrap">
-                                                <div className="font-semibold text-left">User name</div>
+                                                <div className="font-semibold text-left">Location</div>
                                             </th>
                                             <th className="p-2 whitespace-nowrap">
                                                 <div className="font-semibold text-left">Status</div>
